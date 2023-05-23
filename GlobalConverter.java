@@ -9,13 +9,13 @@ public class GlobalConverter {
 
         while (check == 0) {
             try {
-                System.out.println("Error : invalid string");
-                System.out.println("Please enter a string of character :");
+                System.out.println("\033[31m" + "Error : invalid string");
+                System.out.println("Please enter a string of character :" + "\033[0m");
                 str = scanner.nextLine();
                 check = ft_check_string(str);
             }
             catch (Exception e) {
-                System.out.println("Error : invalid string");
+                System.out.println("\033[31m" + "Error : invalid string" + "\033[0m");
             }
         }
         scanner.close();
@@ -150,7 +150,7 @@ public class GlobalConverter {
             }
         }
 
-        if (args.length >= 2 && args[0] != "-man") {
+        if (args.length >= 1 && args[0] != "-man") {
             System.out.println("\033[32m" + buff + "\033[0m");
         }
     }

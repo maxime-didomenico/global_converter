@@ -44,7 +44,7 @@ public class GlobalConverter {
         String str = "", buff = "";
 
         if (args.length > 5) {
-            System.out.println("Error : too many arguments");
+            System.out.println("\033[31m" + "Error : too many arguments" + "\033[0m");
         }
 
         if (args.length >= 2) {
@@ -60,7 +60,7 @@ public class GlobalConverter {
         }
 
         if (args[0].equals("-man") && args.length == 1) {
-            System.out.println("Here's the list of the available options :\n -h : hexadecimal\n -b : binary\n -o : octal\n -d : decimal\n -man : man\nIf you want the translation of an encrypted string, use :\n --d : decimal\n --h : hexadecimal\n --o : octal\n --b : binary\n\nIf you want to remove the spaces between the charcaters use :\njava GlobalConverter -X example -rs\n\nOr if you want to encrypt a string use :\njava GlobalConverter -X example -c value(int)");
+            System.out.println("\033[36m" + "Here's the list of the available options :\n -h : hexadecimal\n -b : binary\n -o : octal\n -d : decimal\n -man : man\nIf you want the translation of an encrypted string, use :\n --d : decimal\n --h : hexadecimal\n --o : octal\n --b : binary\n\nIf you want to remove the spaces between the charcaters use :\njava GlobalConverter -X example -rs\n\nOr if you want to encrypt a string use :\njava GlobalConverter -X example -c value(int)" + "\033[0m");
             System.exit(0);
         }
 
@@ -88,7 +88,7 @@ public class GlobalConverter {
 
             case "--h":
                 if (str.length() % 2 != 0) {
-                    System.out.println("Error : invalid hexadecimal string");
+                    System.out.println("\033[31m" + "Error : invalid hexadecimal string" + "\033[0m");
                     System.exit(0);
                 }
                 else {
@@ -98,7 +98,7 @@ public class GlobalConverter {
 
             case "--b":
                 if (str.length() % 8 != 0) {
-                    System.out.println("Error : invalid binary string");
+                    System.out.println("\033[31m" + "Error : invalid binary string" + "\033[0m");
                     System.exit(0);
                 }
                 else {
@@ -108,7 +108,7 @@ public class GlobalConverter {
 
             case "--o":
                 if (str.length() % 3 != 0) {
-                    System.out.println("Error : invalid octal string");
+                    System.out.println("\033[31m" + "Error : invalid octal string" + "\033[0m");
                     System.exit(0);
                 }
                 else {
@@ -120,7 +120,7 @@ public class GlobalConverter {
                 break;
 
             default:
-                System.out.println("Error : invalid option");
+                System.out.println("\033[31m" + "Error : invalid option" + "\033[0m");
                 System.exit(0);
         }
 
@@ -151,7 +151,7 @@ public class GlobalConverter {
         }
 
         if (args.length >= 2 && args[0] != "-man") {
-            System.out.println(buff);
+            System.out.println("\033[32m" + buff + "\033[0m");
         }
     }
 }

@@ -60,7 +60,7 @@ public class GlobalConverter {
         }
 
         if (args[0].equals("-man") && args.length == 1) {
-            System.out.println("\033[36m" + "Here's the list of the available options :\n -h : hexadecimal\n -b : binary\n -o : octal\n -d : decimal\n -man : man\nIf you want the translation of an encrypted string, use :\n --d : decimal\n --h : hexadecimal\n --o : octal\n --b : binary\n\nIf you want to remove the spaces between the charcaters use :\njava GlobalConverter -X example -rs\n\nOr if you want to encrypt a string use :\njava GlobalConverter -X example -c value(int)" + "\033[0m");
+            System.out.println("\033[36m" + "Here's the list of the available options :\n -h : hexadecimal\n -b : binary\n -o : octal\n -d : decimal\n -man : man\nIf you want the translation of an encrypted string, use :\n --d : decimal\n --h : hexadecimal\n --o : octal\n --b : binary\n\nIf you want to encrypt your string use :\njava GlobalConverter -X example -c value(int)" + "\033[0m");
             System.exit(0);
         }
 
@@ -92,6 +92,7 @@ public class GlobalConverter {
                     System.exit(0);
                 }
                 else {
+                    str = str.replaceAll(" ", "");
                     buff = hex.ft_hexadecimal_to_str(str);
                     break;
                 }
@@ -102,6 +103,7 @@ public class GlobalConverter {
                     System.exit(0);
                 }
                 else {
+                    str = str.replaceAll(" ", "");
                     buff = bin.ft_binary_to_str(str);
                     break;
                 }
@@ -112,10 +114,12 @@ public class GlobalConverter {
                     System.exit(0);
                 }
                 else {
+                    str = str.replaceAll(" ", "");
                     buff = oct.ft_octal_to_str(str);
                     break;}
 
             case "--d":
+                str = str.replaceAll(" ", "");
                 buff = dec.ft_decimal_to_str(str);
                 break;
 
@@ -126,23 +130,8 @@ public class GlobalConverter {
 
         if (args.length > 2) {
             switch (args[2]) {
-                case "-rs":
-                    buff = buff.replaceAll(" ", "");
-                    break;
-
                 case "-c":
                     buff = enc.ft_cesar(str, Integer.parseInt(args[3]));
-                    break;
-
-                default:
-                    break;
-            }
-        }
-
-        if (args.length > 4) {
-            switch (args[4]) {
-                case "-rs":
-                    buff = buff.replaceAll(" ", "");
                     break;
 
                 default:
